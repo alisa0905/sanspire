@@ -3,7 +3,7 @@ import { LogoMarquee } from "@/components/sandspire/LogoMarquee";
 const navLinks: { label: string; href: string }[] = [
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#services" },
-  { label: "Work", href: "#work" },
+  { label: "Work", href: "/work" },
   { label: "Use Cases", href: "#who" },
 ];
 

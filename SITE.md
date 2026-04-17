@@ -13,11 +13,23 @@
 
 ## Pages
 - Homepage (`/`) - Welcome + getting started commands.
+- Work (`/work`) - Portfolio listing page with filters and project cards.
+- Work Project (`/work/slrp`) - Detailed SLRP case-study page with intro, challenge/solution/result storytelling, image galleries, and contact/footer sections.
 
 ## Components
 - `AgentationProvider` - included by the app layout.
 
 ## Recent Changes
+- 2026-04-17: Applied `/work/slrp` spacing cleanup from QA: removed the right intro info panel border, removed bottom padding in the first bordered section, removed bottom padding from the left intro media card, and added negative bottom margin to the main SLRP image for a flush edge.
+- 2026-04-17: Corrected both `/work` wrapper closing tags together (header inner `</div>` and first content `</section>`) to fully resolve the repeated parse errors around lines 91 and 122.
+- 2026-04-17: Fixed another JSX mismatch in `/work` by changing the closing tag after the category pills from `</div>` to `</section>`, resolving the line-122 parse error.
+- 2026-04-17: Fixed a second JSX closing-tag mismatch in `/work` header markup (`</section>` corrected to `</div>`) to resolve another parse-time build error.
+- 2026-04-17: Fixed a JSX structure bug on `/work` (mismatched closing tag in the intro section) that was causing a build parsing error.
+- 2026-04-17: Restored the previous `/work` portfolio listing page and moved the long case-study layout to `/work/slrp`, then wired “View Project” links from the listing to open the detail page.
+- 2026-04-17: Applied another `/work` cleanup pass from visual QA: made the top frame hug only the sticky top bar (removed the extra 519px header height), removed bottom padding under the first bordered section, removed the dark background fill from the right intro info card, and removed bottom corner rounding on the intro image/card.
+- 2026-04-17: Applied `/work` feedback pass: removed the decorative top pattern image layer, made the top sticky nav span full viewport width, made the intro project split flush to the container edges, and removed bottom corner rounding on the two intro cards.
+- 2026-04-17: Updated `/work` so image containers now hug the natural image dimensions (removed fixed card image heights), and rebuilt the top header block to match the 519px dark Figma frame style with a subtle rotated dot-pattern background treatment.
+- 2026-04-17: Rebuilt the `/work` page to match the new Figma direction for SLRP (dark intro with project details and visit button, cream challenge/solution/result storytelling block, updated local project image paths, and supporting gallery tiles before contact/footer).
 - 2026-04-16: Added Figma MCP server to `.mcp.json` so the agent can connect to Figma.
 - 2026-04-16: Added local Figma desktop MCP endpoint (`figma-desktop`) to `.mcp.json`.
 - 2026-04-16: Implemented the Sandspire homepage from Figma (node `336-1207`) including hero/video, logo marquee, services bento, case studies, contact+FAQ, and footer.
@@ -74,6 +86,7 @@
 - 2026-04-16: Applied service-card content feedback: removed the services subtitle line under “What we do”, moved that copy into the top-left of the first card, removed the first card title/price label, and updated the remaining card labels/prices to match the latest review notes.
 - 2026-04-16: Refined services bento again per review: removed the extra absolute overlay label, renamed the first visible info card title to “AI Automation”, increased top padding inside all service cards, and changed service card titles to medium weight.
 - 2026-04-16: Reduced service card title font weight again in the bento section for a lighter look.
+- 2026-04-16: Added a new `/work` page inspired by the provided Figma frame (top nav, centered page intro, category bar, 2-column project showcase cards, and existing contact/footer sections), and linked the homepage top-bar “Work” item to `/work`.
 
 ## How to Customize
 - To change the site name/tagline: edit `app/layout.tsx` (`metadata.title` / `metadata.description`) and/or `app/page.tsx`.
