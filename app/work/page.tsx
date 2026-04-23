@@ -1,12 +1,7 @@
 import { ContactFAQ } from "@/components/sandspire/ContactFAQ";
+import { SandspireHeader } from "@/components/sandspire/SandspireHeader";
+import { ScrollReveal } from "@/components/sandspire/ScrollReveal";
 import { SiteFooter } from "@/components/sandspire/SiteFooter";
-
-const navLinks: { label: string; href: string }[] = [
-  { label: "Services", href: "/#services" },
-  { label: "Pricing", href: "/#services" },
-  { label: "Work", href: "/work" },
-  { label: "Use Cases", href: "/#who" },
-];
 
 const categories = ["All", "Branding", "Web Development", "Social Media"];
 
@@ -80,42 +75,19 @@ const projects = [
 export default function WorkPage() {
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-[#FAF3E8]">
-      <header className="sticky top-0 z-30 h-[54px] bg-gradient-to-b from-[#141414]/75 to-[#0d0d0d]/65 px-5 backdrop-blur-[6px] lg:px-7">
-        <div className="mx-auto flex h-full w-full max-w-[1220px] items-center justify-between gap-5">
-          <a href="/" aria-label="Go to homepage">
-            <img src="/logos/sandspire.svg" alt="Sandspire" className="h-7 w-auto" />
-          </a>
-
-          <nav className="hidden items-center justify-center gap-[38px] md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-medium capitalize tracking-[0.12px] text-white/90 hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="/#contact"
-            className="inline-flex h-9 items-center rounded-full bg-[var(--background)] px-5 text-[13px] font-semibold text-[var(--foreground)]"
-          >
-            Get in touch
-          </a>
-        </div>
-      </header>
+      <SandspireHeader />
 
       <main className="mx-auto w-full max-w-[1280px] px-6 pb-0 pt-24 lg:px-0">
         <section className="mx-auto w-full max-w-[995px]">
-          <h1 className="text-center font-[family-name:var(--font-display)] text-[44px] font-light leading-[1.05] text-[#FAF3E8]">
-            Selected Work
-          </h1>
-          <p className="mx-auto mt-4 max-w-[560px] text-center text-[18px] leading-[1.35] text-[#919191]">
-            A curated set of brand, web, and campaign projects crafted for teams
-            that care about details.
-          </p>
+          <ScrollReveal className="w-full">
+            <h1 className="text-center font-[family-name:var(--font-display)] text-[44px] font-light leading-[1.05] text-[#FAF3E8]">
+              Selected Work
+            </h1>
+            <p className="mx-auto mt-4 max-w-[560px] text-center text-[18px] leading-[1.35] text-[#919191]">
+              A curated set of brand, web, and campaign projects crafted for teams
+              that care about details.
+            </p>
+          </ScrollReveal>
 
           <div className="mt-8 rounded-full bg-white/10 p-1.5">
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
@@ -124,7 +96,7 @@ export default function WorkPage() {
                   type="button"
                   key={category}
                   className={[
-                    "rounded-full px-4 py-2 text-[13px] transition-colors",
+                    "rounded-full px-4 py-2 text-[12px] transition-colors",
                     idx === 0
                       ? "bg-white/20 text-[#FAF3E8]"
                       : "text-[#B5B5B5] hover:bg-white/10 hover:text-[#FAF3E8]",
@@ -138,11 +110,9 @@ export default function WorkPage() {
         </section>
 
         <section className="mx-auto mt-14 grid w-full max-w-[995px] gap-x-[47px] gap-y-[52px] md:grid-cols-2">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="rounded-[14px] border border-white/10 bg-white/[0.06] p-[18px] shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-            >
+          {projects.map((project, idx) => (
+            <ScrollReveal key={project.title} className="h-full" delay={0.05 + idx * 0.06}>
+              <article className="h-full rounded-[14px] border border-white/10 bg-white/[0.06] p-[18px] shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
               <div className="overflow-hidden rounded-[12px] bg-black/30">
                 <img
                   src={project.imageSrc}
@@ -184,6 +154,7 @@ export default function WorkPage() {
                 </a>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </section>
       </main>

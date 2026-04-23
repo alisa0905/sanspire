@@ -1,7 +1,13 @@
 import { ContactForm } from "@/components/sandspire/ContactForm";
 import { FaqAccordion } from "@/components/sandspire/FaqAccordion";
+import { ScrollReveal } from "@/components/sandspire/ScrollReveal";
+import { cn } from "@/lib/utils";
 
-export function ContactFAQ() {
+type ContactFAQProps = {
+  className?: string;
+};
+
+export function ContactFAQ({ className }: ContactFAQProps) {
   const faqItems = [
     {
       question: "How long does a project take?",
@@ -26,25 +32,32 @@ export function ContactFAQ() {
   ];
 
   return (
-    <section id="contact" className="w-full bg-[#0D0D0D] px-6 py-[96px] lg:px-0">
-      <div className="mx-auto w-full max-w-[1200px]">
-        <div className="mx-auto flex w-full max-w-[940px] flex-col gap-8 lg:flex-row">
-          <div className="w-full max-w-[468px]">
-            <div className="space-y-5">
-              <p className="text-[34px] font-bold leading-[1.1] text-[var(--accent)]">
+    <section
+      id="contact"
+      className={cn(
+        "w-full overflow-hidden rounded-t-[70px] bg-[#0d0d0d] px-6 pb-16 pt-20 lg:px-12 lg:pb-[72px] lg:pt-[100px] xl:px-[72px]",
+        className,
+      )}
+    >
+      <div className="mx-auto flex w-full max-w-[1013px] flex-col items-center gap-24 lg:gap-[140px]">
+        <ScrollReveal className="flex w-full flex-col items-start justify-between gap-12 lg:flex-row lg:gap-8">
+          <div className="flex w-full max-w-[508px] flex-col gap-16 lg:gap-24">
+            <div className="flex flex-col gap-1.5">
+              <p className="font-[family-name:var(--font-body)] text-[22px] font-light leading-[1.4] tracking-[-0.03em] text-[#ff5e00]">
                 Contact us
               </p>
-              <div className="space-y-6">
-                <h2 className="font-[family-name:var(--font-display)] text-[34px] font-medium leading-[1.05] text-[#FAF3E8] lg:text-[44px]">
-                  Let’s Create Something Meaningful
+              <div className="flex flex-col gap-8">
+                <h2 className="font-[family-name:var(--font-body)] text-[32px] font-light leading-[1.08] tracking-[-0.02em] text-[#faf3e8] lg:text-[34px]">
+                  Let&apos;s Create Something Meaningful
                 </h2>
-                <p className="max-w-[250px] text-[20px] leading-[1.25] text-[#818181]">
-                  Whether you&apos;re starting from scratch or need a brand refresh, we’re here to help bring your vision to life.
+                <p className="max-w-[320px] text-[17px] font-normal leading-[1.45] text-[#818181]">
+                  Whether you&apos;re starting from scratch or need a brand refresh, we&apos;re here to
+                  help bring your vision to life.
                 </p>
               </div>
             </div>
 
-            <div className="mt-10 flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <SocialIcon href="#" label="Instagram">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="2" />
@@ -52,30 +65,31 @@ export function ContactFAQ() {
                   <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
                 </svg>
               </SocialIcon>
-              <SocialIcon href="#" label="LinkedIn">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+              <SocialIcon href="#" label="LinkedIn" variant="muted">
+                <svg viewBox="0 0 24 24" className="h-[17px] w-[17px]" fill="currentColor" aria-hidden="true">
                   <path d="M6.5 8.5A1.5 1.5 0 1 0 6.5 5.5A1.5 1.5 0 0 0 6.5 8.5ZM5 10h3v9H5zM10 10h2.9v1.3h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19h-3v-3.8c0-.9 0-2-1.2-2s-1.4.9-1.4 2V19h-3z" />
                 </svg>
               </SocialIcon>
             </div>
           </div>
 
-          <div className="w-full max-w-[470px] rounded-[24px] border border-white/15 bg-white/[0.08] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.24)] backdrop-blur-[14px] lg:p-6">
+          <div className="w-full max-w-[505px] shrink-0 rounded-[30px] border border-[#919191] bg-[rgba(85,85,85,0.08)] px-6 pb-8 pt-5 lg:min-h-[433px] lg:px-7 lg:pb-8 lg:pt-5">
             <ContactForm />
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="mx-auto mt-[120px] w-full max-w-[940px]">
-          <h3 className="text-center font-[family-name:var(--font-display)] text-[42px] font-light leading-[1.05] text-[#E6DDD0]">
+        <ScrollReveal className="flex w-full flex-col items-center gap-16 lg:gap-14" delay={0.12}>
+          <h3 className="text-center font-[family-name:var(--font-body)] text-[clamp(1.65rem,4vw,2.5rem)] font-light leading-tight tracking-[-0.02em] text-[#e6ddd0]">
             Frequently Asked Questions
           </h3>
-          <div className="mt-10">
-            <FaqAccordion items={faqItems} />
-          </div>
-          <p className="mt-10 text-center font-[family-name:var(--font-display)] text-[30px] font-light text-[#E6DDD0]">
+          <FaqAccordion items={faqItems} />
+          <a
+            href="#contact"
+            className="text-center font-[family-name:var(--font-body)] text-sm font-light tracking-[-0.02em] text-[#e6ddd0] underline decoration-solid underline-offset-4"
+          >
             Have more questions? Contact us
-          </p>
-        </div>
+          </a>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -85,19 +99,23 @@ function SocialIcon({
   href,
   label,
   children,
+  variant = "default",
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
+  variant?: "default" | "muted";
 }) {
   return (
     <a
       href={href}
       aria-label={label}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-[#FAF3E8] ring-1 ring-white/15"
+      className={[
+        "inline-flex size-[50px] items-center justify-center rounded-[32px] text-[#faf3e8]",
+        variant === "muted" ? "bg-[rgba(13,13,13,0.4)]" : "bg-black/30 ring-1 ring-white/10",
+      ].join(" ")}
     >
       {children}
     </a>
   );
 }
-

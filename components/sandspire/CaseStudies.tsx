@@ -1,3 +1,5 @@
+import { ScrollReveal } from "@/components/sandspire/ScrollReveal";
+
 export function CaseStudies() {
   const cases = [
     {
@@ -12,7 +14,8 @@ export function CaseStudies() {
     },
     {
       title: "Slrp",
-      description: "Japanese restaurant combining quality ingredients with a casual dining experience.",
+      description:
+        "Japanese restaurant combining quality ingredients with a casual dining experience.",
       imageSrc: "/images/projects/slrp/slrp_img.png",
     },
   ];
@@ -20,44 +23,46 @@ export function CaseStudies() {
   return (
     <section
       id="work"
-      className="w-full bg-[#F5F0E8] px-6 py-12 lg:px-10 lg:py-16"
+      className="relative z-10 w-full scroll-mt-8 rounded-tl-[70px] rounded-tr-[70px] bg-white px-6 py-14 text-[#0d0d0d] lg:px-10 lg:py-20 xl:px-[72px]"
     >
-      <div className="mx-auto w-full max-w-[940px]">
-        <h2 className="text-center font-[family-name:var(--font-display)] text-[42px] font-light leading-[1.06] tracking-[-0.02em] text-[#111111]">
-          Crafting legacy for teams that scale
-        </h2>
+      <div className="mx-auto flex w-full max-w-[1016px] flex-col items-center gap-14 lg:gap-[4.5rem]">
+        <ScrollReveal className="w-full">
+          <h2 className="text-center font-[family-name:var(--font-body)] text-[clamp(1.65rem,3.4vw,2.45rem)] font-light leading-[1.15] tracking-[-0.02em] text-[#0d0d0d]">
+            Crafting legacy for teams that scale
+          </h2>
+        </ScrollReveal>
 
-        <div className="mt-10 space-y-8">
-          {cases.map((c) => (
-            <article
-              key={c.title}
-              className="grid items-start gap-5 lg:grid-cols-[520px_1fr] lg:gap-6"
-            >
-              <div className="relative aspect-[3/2] w-full">
-                <div className="absolute inset-0 overflow-hidden rounded-[14px] border border-black/15 bg-[#d7cec0] shadow-[0_5px_14px_rgba(0,0,0,0.14)]">
-                  <img
-                    src={c.imageSrc}
-                    alt={`${c.title} preview`}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
+        <div className="flex w-full flex-col gap-10 lg:gap-[4.5rem]">
+          {cases.map((c, idx) => (
+            <ScrollReveal key={c.title} className="w-full" delay={0.06 + idx * 0.1}>
+              <article className="grid items-center gap-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:gap-8">
+              <div className="w-full">
+                <div className="overflow-hidden rounded-[20px] border border-black/15 bg-black/20 p-1 shadow-[0_5px_14px_rgba(0,0,0,0.14)]">
+                  <div className="overflow-hidden rounded-[17px] bg-[#d7cec0]">
+                    <img
+                      src={c.imageSrc}
+                      alt={`${c.title} preview`}
+                      className="aspect-[3/2] w-full object-cover lg:min-h-[320px]"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="flex h-full flex-col justify-start pt-1">
-                <h3 className="font-[family-name:var(--font-display)] text-[38px] font-light leading-[1.03] tracking-[-0.02em] text-[#111111]">
+              <div className="flex min-h-[200px] flex-col justify-center lg:min-h-[320px]">
+                <h3 className="font-[family-name:var(--font-body)] text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-tight tracking-[-0.02em] text-[#0d0d0d]">
                   {c.title}
                 </h3>
-                <p className="mt-2 max-w-[320px] text-[19px] font-normal leading-[1.2] text-[#8A847B]">
+                <p className="mt-4 max-w-[400px] text-[16px] font-normal leading-[1.55] text-[#8a837b]">
                   {c.description}
                 </p>
 
                 <a
                   href="#contact"
-                  className="mt-4 inline-flex h-7 w-fit items-center gap-2 rounded-full bg-[#242424] pl-1 pr-3.5 text-[9px] font-semibold text-white"
+                  className="mt-5 inline-flex h-9 w-fit items-center gap-2 rounded-full bg-[#242424] pl-1 pr-4 text-[11px] font-semibold text-white"
                 >
-                  <span className="inline-flex h-4 w-5 items-center justify-center rounded-full bg-[var(--accent)] text-white">
-                    <svg viewBox="0 0 20 20" className="h-3 w-3" fill="none" aria-hidden="true">
+                  <span className="inline-flex h-7 w-9 items-center justify-center rounded-full bg-[var(--accent)] text-white">
+                    <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" aria-hidden="true">
                       <path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" strokeWidth="2.4" />
                     </svg>
                   </span>
@@ -65,10 +70,10 @@ export function CaseStudies() {
                 </a>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

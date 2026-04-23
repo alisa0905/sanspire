@@ -1,12 +1,6 @@
 import { ContactFAQ } from "@/components/sandspire/ContactFAQ";
+import { SandspireHeader } from "@/components/sandspire/SandspireHeader";
 import { SiteFooter } from "@/components/sandspire/SiteFooter";
-
-const navLinks: { label: string; href: string }[] = [
-  { label: "Services", href: "/#services" },
-  { label: "Pricing", href: "/#services" },
-  { label: "Work", href: "/work" },
-  { label: "Use Cases", href: "/#who" },
-];
 
 const categories = ["Branding", "Web Development"];
 
@@ -41,32 +35,7 @@ const solutionPoints = [
 export default function SlrpWorkPage() {
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-[#FAF3E8]">
-      <header className="sticky top-0 z-30 h-[54px] bg-gradient-to-b from-[#141414]/75 to-[#0d0d0d]/65 px-5 backdrop-blur-[6px] lg:px-7">
-        <div className="mx-auto flex h-full w-full max-w-[1220px] items-center justify-between gap-5">
-          <a href="/" aria-label="Go to homepage">
-            <img src="/logos/sandspire.svg" alt="Sandspire" className="h-7 w-auto" />
-          </a>
-
-          <nav className="hidden items-center justify-center gap-[38px] md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-medium capitalize tracking-[0.12px] text-white/90 hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="/#contact"
-            className="inline-flex h-9 items-center rounded-full bg-[var(--background)] px-5 text-[13px] font-semibold text-[var(--foreground)]"
-          >
-            Get in touch
-          </a>
-        </div>
-      </header>
+      <SandspireHeader />
 
       <main>
         <section className="border-b border-white/10 pb-0 pt-14">
